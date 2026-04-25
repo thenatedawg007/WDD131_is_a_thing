@@ -1,0 +1,51 @@
+/*title*/
+#title {
+    font-size: 23px;
+    text-align: center;
+    padding-bottom: -1000px;
+}
+/*sub-title*/
+#sub-title{
+    transform: translateY(-20px);
+    font-size: 20px;
+    text-align: center;
+    color: #4091C9;
+}
+#underline {
+    color: darkgrey;
+    text-align: center;
+    transform:translateY(-60px);
+}
+#paragraph {
+    font-size: 20px;
+    text-align: left;
+    padding-left: 20%;
+    padding-right: 20%;
+    list-style: none;
+}
+#italic{
+    font-size: 20px;
+    transform:translateY(10px);
+    padding-bottom: 10px;
+    padding-left: 20%;
+    padding-right: 20%;
+    font-style: italic;
+}
+ul {
+    list-style-type: decimal;
+    text-align: left;
+    padding-left: 20%;
+    padding-right: 10%;
+    margin-left: 10px;
+}
+img {
+    height: auto;
+    max-width: 150px;
+    text-align: center;
+    padding-left: 45%;
+    padding-top: 10%;
+}
+#list {
+    font-size: 20px;
+    padding-top: 20px;
+}
