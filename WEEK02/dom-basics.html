@@ -41,10 +41,7 @@
     }
                 
     </style>
-    <script>    
-        let firstlist = document.querySelector(".list");
-        firstlist.style.backgroundColor = "red";
-    </script>
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,7 +78,21 @@
             <li>Without JavaScript nothing on the page responds dynamically to user actions.</li>
         </ul>
     </div>
-</div>
-                
+</div>         
+    <script>    
+
+        let firstlist = document.querySelector(".list");
+        firstlist.style.backgroundColor = "red";
+
+        let content = document.getElementById("content");
+        content.style.backgroundColor = "brown";
+
+        document.querySelector("img").setAttribute("src", "https://media.tenor.com/x8v1oNUOmg4AAAAM/rickroll-roll.gif");
+        
+        document.querySelector("img").setAttribute("alt", "new alt tag");
+        
+        document.querySelector("h1").textContent = "MONSTER TRUCKS!!!";
+
+    </script>
 </body>
 </html>
