@@ -1,0 +1,133 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: Roboto, sans-serif;
+}
+main,
+header,
+footer {
+  max-width: 1000px;
+  margin: 1rem auto;
+  border: 1px solid #ccc;
+  padding: rem;
+  background-color: lightblue;
+}
+h1 {
+    text-align: center;
+}
+
+nav a {
+    padding: 20px;
+    color: black;
+}
+nav a:hover {
+    text-decoration: none;
+    color: #616061;
+}
+
+footer {
+    text-align: center;
+}
+main {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  #menu-btn {
+    display: none;
+  }
+ 
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+ 
+  .pic-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+ 
+  .mpic {
+    width: 28%;
+    padding: 10px;
+    background-color: white;
+    margin: 0.5em;
+    border: 5px solid #aaa;
+  }
+}
+ 
+/* Tablet */
+@media screen and (min-width: 426px) and (max-width: 1023px) {
+  #menu-btn {
+    color: rgb(24, 21, 21);
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+  }
+ 
+  #menu-btn:hover {
+    color: #726969;
+  }
+ 
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+ 
+  nav a {
+    display: none;
+  }
+ 
+  .pic-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+ 
+  .mpic {
+    width: 40%;
+    padding: 10px;
+    background-color: white;
+    margin: 0.5em;
+    border: 5px solid #aaa;
+  }
+}
+ 
+/* Mobile */
+@media screen and (min-width: 0px) and (max-width: 425px) {
+  nav a {
+    display: none;
+  }
+ 
+  #menu-btn {
+    color: rgb(24, 21, 21);
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+  }
+ 
+  #menu-btn:hover {
+    color: #726969;
+  }
+ 
+  .pic-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+  .mpic {
+    width: 75%;
+    padding: 10px;
+    background-color: white;
+    margin: 0.5em;
+    border: 5px solid #aaa;
+  }
+}
