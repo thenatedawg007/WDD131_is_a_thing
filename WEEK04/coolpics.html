@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cool Gallery</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body { background: #f7f4ef; font-family: sans-serif; }
+
+    /* ── NAV ── */
+    nav {
+      background: #1c1a17;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      color: #f7f4ef;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: #c8bfb0;
+      text-decoration: none;
+      font-size: .9rem;
+      letter-spacing: .05em;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: #f7f4ef; }
+
+    /* active indicator */
+    .nav-links a.active {
+      border-bottom: 2px solid #c0622a;
+      padding-bottom: 2px;
+    }
+
+    /* ── HEADER ── */
+    header { padding: 2rem 2.5rem 1.5rem; border-bottom: 1px solid #e0d8cc; }
+    header h1 { font-size: 2.5rem; font-weight: 700; }
+
+    /* ── PAGES ── */
+    .page { display: none; padding: 2rem 2.5rem; }
+    .page.active { display: block; }
+
+    /* about & contact cards */
+    .card {
+      background: #fff;
+      border: 1px solid #e0d8cc;
+      border-radius: 10px;
+      padding: 2rem;
+      max-width: 560px;
+    }
+
+    .card h2 { font-size: 1.4rem; margin-bottom: .75rem; }
+    .card p  { color: #555; line-height: 1.7; margin-bottom: 1rem; }
+    .card p:last-child { margin-bottom: 0; }
+
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .contact-list li { color: #555; font-size: .95rem; }
+    .contact-list li span { font-weight: 600; color: #1c1a17; margin-right: .4rem; }
+
+    /* ── GALLERY ── */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 640px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 400px) { .gallery { grid-template-columns: 1fr; } }
+
+    figure {
+      margin: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: zoom-in;
+      aspect-ratio: 4 / 3;
+      background: #e8e0d0;
+    }
+
+    figure img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s ease;
+    }
+
+    figure:hover img { transform: scale(1.05); }
+
+    /* ── VIEWER ── */
+    .viewer {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .viewer.open { display: flex; }
+
+    .viewer-box {
+      position: relative;
+      max-width: min(800px, 90vw);
+      width: 100%;
+    }
+
+    .viewer-box img {
+      display: block;
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .close-viewer {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: white;
+      color: #111;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+    }
+
+    .close-viewer:hover { background: #ddd; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a class="nav-logo" href="#">CoolPics</a>
+    <ul class="nav-links">
+      <li><a href="#" data-page="home" class="active">Home</a></li>
+      <li><a href="#" data-page="about">About</a></li>
+      <li><a href="#" data-page="contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HOME PAGE ── -->
+  <div class="page active" id="page-home">
+
+    <header>
+      <h1>Cool Gallery</h1>
+    </header>
+
+    <main>
+      <section class="gallery">
+
+        <figure>
+          <img src="images/book-sm.jpg" alt="person reading a book">
+        </figure>
+
+        <figure>
+          <img src="images/couch-sm.jpg" alt="person sitting on couch">
+        </figure>
+
+        <figure>
+          <img src="images/desk-sm.jpg" alt="desktop workspace">
+        </figure>
+
+        <figure>
+          <img src="images/keyboard-sm.jpg" alt="typing keyboard">
+        </figure>
+
+        <figure>
+          <img src="images/phone-sm.jpg" alt="looking at phone">
+        </figure>
+
+        <figure>
+          <img src="images/sit-sm.jpg" alt="person sitting">
+        </figure>
+
+      </section>
+    </main>
+
+  </div>
+
+  <!-- ── ABOUT PAGE ── -->
+  <div class="page" id="page-about">
+    <header>
+      <h1>About</h1>
+    </header>
+    <div style="padding: 2rem 0;">
+      <div class="card">
+        <h2>About Cool Gallery</h2>
+        <p>Cool Gallery is a simple, clean photo showcase built for the BYU-Idaho WDD131 course. It displays a curated set of lifestyle images in a responsive grid layout.</p>
+        <p>Click any image to open it in the full-screen viewer. The gallery works on desktop and mobile.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CONTACT PAGE ── -->
+  <div class="page" id="page-contact">
+    <header>
+      <h1>Contact</h1>
+    </header>
+    <div style="padding: 2rem 0;">
+      <div class="card">
+        <h2>Get in Touch</h2>
+        <p>Have a question or want to share your own cool pics? Reach out anytime.</p>
+        <ul class="contact-list">
+          <li><span>Email:</span> hello@coolpics.com</li>
+          <li><span>Instagram:</span> @coolpics</li>
+          <li><span>Location:</span> Rexburg, Idaho</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── VIEWER OVERLAY ── -->
+  <div class="viewer" id="viewer">
+    <div class="viewer-box">
+      <button class="close-viewer" id="closeBtn">&#x2715;</button>
+      <img src="" alt="Expanded image" id="viewerImg">
+    </div>
+  </div>
+
+  <script>
+    // ── NAV ──────────────────────────────────────
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const page = link.dataset.page;
+
+        // update active link
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        // show correct page
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById('page-' + page).classList.add('active');
+      });
+    });
+
+    // ── VIEWER ───────────────────────────────────
+    const viewer    = document.getElementById('viewer');
+    const viewerImg = document.getElementById('viewerImg');
+    const closeBtn  = document.getElementById('closeBtn');
+
+    document.querySelectorAll('.gallery figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        viewerImg.src = img.src;
+        viewerImg.alt = img.alt;
+        viewer.classList.add('open');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => viewer.classList.remove('open'));
+    viewer.addEventListener('click', e => { if (e.target === viewer) viewer.classList.remove('open'); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') viewer.classList.remove('open'); });
+  </script>
+
+</body>
+</html>
