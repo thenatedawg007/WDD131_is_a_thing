@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cool Pics</title>
+  <link href="coolpics.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Cool Pics 📷</h1>
+    <a href="#" id="menu-btn">Menu</a>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">People</a>
+      <a href="#">Places</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Current Work</h2>
+    <div id="pictures">
+      <div class="pic-row">
+        <img class="mpic" src="https://wddbyui.github.io/wdd131/images/norris-sm.jpg" alt="Norris Geyser Basin">
+        <img class="mpic" src="https://wddbyui.github.io/wdd131/images/norris-sm.jpg" alt="Norris Geyser Basin">
+        <img class="mpic" src="https://wddbyui.github.io/wdd131/images/norris-sm.jpg" alt="Norris Geyser Basin">
+      </div>
+      <div class="pic-row">
+        <img class="mpic" src="https://wddbyui.github.io/wdd131/images/norris-sm.jpg" alt="Norris Geyser Basin">
+        <img class="mpic" src="https://wddbyui.github.io/wdd131/images/norris-sm.jpg" alt="Norris Geyser Basin">
+        <img class="mpic" src="https://wddbyui.github.io/wdd131/images/norris-sm.jpg" alt="Norris Geyser Basin">
+      </div>
+      <div class="pic-row">
+        <img class="mpic" src="https://wddbyui.github.io/wdd131/images/norris-sm.jpg" alt="Norris Geyser Basin">
+        <img class="mpic" src="https://wddbyui.github.io/wdd131/images/norris-sm.jpg" alt="Norris Geyser Basin">
+        <img class="mpic" src="https://wddbyui.github.io/wdd131/images/norris-sm.jpg" alt="Norris Geyser Basin">
+      </div>
+    </div>
+  </main>
+  <footer>Jane Doe</footer>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox">
+    <button id="close-btn">✕</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+<script>
+  // Menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const nav = document.querySelector('nav');
+
+  menuBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    nav.classList.toggle('open');
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('close-btn');
+
+  document.querySelectorAll('.mpic').forEach(function (img) {
+    img.addEventListener('click', function () {
+
+      // FIXED IMAGE PATH
+      const largeSrc = this.src.replace('-sm.jpg', '-full.jpg');
+
+
+      lightboxImg.src = largeSrc;
+      lightboxImg.alt = this.alt;
+      lightbox.classList.add('open');
+    });
+  });
+
+  closeBtn.addEventListener('click', function () {
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+  });
+
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
+    }
+  });
+</script>
+
+</body>
+</html>
