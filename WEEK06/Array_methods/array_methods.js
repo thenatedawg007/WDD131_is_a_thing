@@ -55,3 +55,54 @@ let filteredNames = names.filter((name) => {
 })
 
 console.log(filteredNames)
+
+const numbers = [1, 2, 4];
+const sum = numbers.reduce(function(total, num) {
+    return total + num;
+});
+console.log(sum); // 7
+ 
+// reduce - average
+const avg = numbers.reduce(function(total, num) {
+    return total + num;
+}) / numbers.length;
+console.log(avg); // 2.3333...
+ 
+// filter - words longer than 5 characters
+const words = ['watermelon', 'peach', 'apple', 'tomato', 'grape'];
+const longWords = words.filter(function(word) {
+    return word.length > 5;
+});
+console.log(longWords); // Array(3)
+ 
+// indexOf
+const index = words.indexOf('apple');
+console.log(index); // 2
+// forEach - logs each item in the array
+const list = ['one', 'two', 'three'];
+list.forEach(function(item) {
+    console.log(item);
+});
+ 
+// Students array
+const students = [
+    {last: 'Andrus', first: 'Aaron'},
+    {last: 'Masa', first: 'Manny'},
+    {last: 'Tanda', first: 'Tamanda'}
+];
+ 
+// map - create a new array of full names
+const fullNames = students.map(function(student) {
+    return `${student.first} ${student.last}`;
+});
+console.log(fullNames); // Array(3)
+
+    const fullnamePrint = `
+        <li>${fullname}<\li>
+    
+    `;
+
+
+fullNames.forEach(function(name) {
+    document.getElementById("student-list").innerHTML += fullnamesPrint;
+});
