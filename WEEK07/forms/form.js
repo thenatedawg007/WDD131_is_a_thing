@@ -44,13 +44,13 @@ form.addEventListener("submit", event => {
   }
 
   // All valid — proceed
-  output.textContent = `Thanks, ${form.firstName.value}! Your preferences have been submitted.`;
-  console.log({
-    name: `${form.firstName.value} ${form.lastName.value}`,
-    email: form.email.value,
-    travelRange: numberOfCampuses,
-    campuses: getCheckedCampuses(campuses),
-    availableDate: form.availableDate.value,
-    notes: form.notes.value,
+  output.textContent = `Thanks, ${form.firstName.value}! Your preferences have been submitted.
+    name: ${form.firstName.value} ${form.lastName.value},
+    email: ${form.email.value},
+    travelRange: ${numberOfCampuses},
+    campuses: ${getCheckedCampuses(campuses)},
+    availableDate: ${form.availableDate.value},
+    notes: ${form.notes.value}`;
+
   });
 });
