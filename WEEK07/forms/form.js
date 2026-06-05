@@ -51,6 +51,4 @@ form.addEventListener("submit", event => {
     campuses: ${getCheckedCampuses(campuses)},
     availableDate: ${form.availableDate.value},
     notes: ${form.notes.value}`;
-
-  });
 });
