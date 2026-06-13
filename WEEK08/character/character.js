@@ -17,9 +17,14 @@ function renderCharacter(char) {
 }
 
 function attacked() {
+    if (character.health <= 0) return; // already dead, do nothing
+
     character.health -= 10;
-    if (character.health < 0) {
+    if (character.health <= 0) {
         character.health = 0;
+        alert("Character Died");
+        document.querySelector("#attackBtn").disabled = true;
+        document.querySelector("#levelUpBtn").disabled = true;
     }
     renderCharacter(character);
 }
