@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Remedy</title>
+    <link rel="stylesheet" href="recipe.css"/>
+</head>
+<body>
+    <div id="top-bar">
+        <img id="logo" src="logo.png">
+        <h1 id="branding-name">Recipe Remedy</h1>
+        <div id="search-bar">
+            <div class="search-wrap">
+              <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Find a recipe" aria-label="Find a recipe" />
+                <button id="search-btn" aria-label="Search">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                  </svg>
+                </button>
+                </div>
+            </div>
+        </div>
+        <a href="#recipe-form-details" id="create-recipe">Create</a>
+    </div>
+    <section>
+        <div id="recipe-book">
+        </div>
+    </section>
+    <h1 id="form-title">CREATE RECIPE HERE</h1>
+    <section id="recipe-form-application">
+        <form id="recipe-form-details">
+            <div class="recipe-field">
+                <label for="recipe-name-input">Recipe Name:</label>
+                <input type="text" id="recipe-name-input" name="recipe-name">
+            </div>
+            <div class="recipe-field">
+                <label for="recipe-video-input">Recipe video (embed):</label>
+                <input type="text" id="recipe-video-input" name="recipe-video">
+            </div>
+            <div class="recipe-field">
+                <label for="recipe-instructions-input">Recipe instructions:</label>
+                <input type="file" id="recipe-instructions-input" name="recipe-instructions" accept="image/*">
+            </div>
+            <div>
+                <button type="submit" id="submit">Create Recipe</button>
+            </div>
+        </form>
+    </section>
+
+    <div id="image-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-image" src="" alt="">
+    </div>
+    <div id="warning"> Warning: Saving recipes may result in buying ingredients you'll never use. 
+         Side effects include spontaneous cooking at 2 A.M.
+         Your "I'll just order takeout" era may be coming to an end.
+         We are not responsible for smoke alarms, burnt garlic, or missing snacks.
+         Your grocery bill may suddenly include 17 different spices.
+         Friends and family may start requesting your cooking.
+         One saved recipe can quickly become 500. Don't say we didn't warn you.
+         Browsing while hungry may lead to excessive recipe hoarding.
+         You may convince yourself you'll meal prep this week.
+         "Just one more recipe" is how it always starts.</div>
+</body>
+<script src="recipe.js" defer></script>
+</html>
